@@ -387,6 +387,9 @@ require('./vehicle/drone.js');
 require('./vehicle/flatbed.js');
 require('./vehicle/ticket.js');
 require('./vehicle/mileage.js');
+require('./vehicle/speedboost.js');
+require('./vehicle/orgvehicles.js');
+require('./vehicle/abilities.js');
 
 
 require('./fractions/advert.js')
@@ -395,6 +398,8 @@ require('./fractions/stock.js');
 require('./fractions/policepc.js');
 require('./fractions/mats.js');
 require('./fractions/menu.js');
+require('./fractions/gangwar.js');
+require('./fractions/orgmanager.js');
 
 require('./house/furniture.js');
 require('./house/index.js');
@@ -413,6 +418,7 @@ require('./world/stream.js');
 require('./world/petSystem.js');
 require('./world/livingcity.js');
 require('./world/extras.js');
+require('./world/enhanced_world.js');
 
 require('./main.js');
 
