@@ -19,6 +19,7 @@ namespace NeptuneEvo.Jobs.Models
         GarbageCollector,
         Fisher,
         Miner,
-        Hunter
+        Hunter,
+        NewspaperDelivery
     }
 }
