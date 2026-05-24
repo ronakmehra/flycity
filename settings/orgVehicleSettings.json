@@ -1,0 +1,177 @@
+{
+  "OrgVehiclePrices": {
+    "street": {
+      "sultan": 25000,
+      "kuruma": 45000,
+      "elegy2": 55000,
+      "buffalo": 30000,
+      "schafter2": 50000,
+      "sentinel": 35000,
+      "f620": 40000,
+      "exemplar": 60000,
+      "tailgater": 45000,
+      "schwarzer": 55000
+    },
+    "muscle": {
+      "dominator": 35000,
+      "gauntlet": 40000,
+      "sabregt": 30000,
+      "virgo": 25000,
+      "phoenix": 35000,
+      "ruiner": 40000,
+      "impaler": 55000,
+      "imperator": 80000,
+      "dominator2": 65000,
+      "ratloader2": 20000
+    },
+    "bikes": {
+      "daemon": 15000,
+      "hexer": 18000,
+      "zombiea": 20000,
+      "wolfsbane": 22000,
+      "nightblade": 25000,
+      "ratbike": 12000,
+      "avarus": 28000,
+      "chimera": 35000,
+      "sanctus": 50000,
+      "deathbike": 75000,
+      "shotaro": 100000,
+      "hakuchou2": 85000
+    },
+    "armored": {
+      "kuruma2": 150000,
+      "insurgent": 200000,
+      "insurgent2": 250000,
+      "nightshark": 180000,
+      "menacer": 220000,
+      "halftrack": 300000,
+      "apc": 500000,
+      "khanjali": 750000,
+      "barrage": 280000,
+      "stromberg": 400000
+    },
+    "super": {
+      "zentorno": 200000,
+      "t20": 250000,
+      "osiris": 220000,
+      "reaper": 230000,
+      "tempesta": 260000,
+      "vagner": 300000,
+      "visione": 350000,
+      "emerus": 400000,
+      "krieger": 450000,
+      "s80": 500000,
+      "deveste": 550000,
+      "thrax": 480000,
+      "furia": 520000,
+      "ignus": 600000,
+      "zeno": 650000
+    },
+    "utility": {
+      "baller3": 60000,
+      "xls": 55000,
+      "granger": 40000,
+      "rumpo3": 30000,
+      "speedo4": 35000,
+      "mule4": 45000,
+      "pounder2": 55000,
+      "brickade": 50000,
+      "youga2": 25000,
+      "burrito3": 20000
+    },
+    "air": {
+      "buzzard2": 500000,
+      "maverick": 350000,
+      "frogger": 300000,
+      "swift2": 600000,
+      "volatus": 700000,
+      "havok": 250000,
+      "supervolito2": 800000,
+      "akula": 1000000,
+      "hunter": 1200000,
+      "savage": 900000
+    },
+    "water": {
+      "dinghy": 30000,
+      "speeder": 50000,
+      "jetmax": 80000,
+      "toro": 120000,
+      "seashark": 15000,
+      "marquis": 100000
+    }
+  },
+  "OrgUpgradePrices": {
+    "HQ_ARMORY": [100000, 250000, 500000, 1000000],
+    "HQ_GARAGE": [75000, 150000, 300000, 600000, 1200000],
+    "HQ_MEDBAY": [50000, 150000, 400000],
+    "HQ_WORKSHOP": [200000, 500000, 1000000, 2000000],
+    "HQ_SECURITY": [100000, 250000, 500000, 1000000],
+    "HQ_HELIPAD": [500000, 1000000, 2500000],
+    "HQ_DOCK": [200000, 500000, 1000000],
+    "ORG_INCOME": [150000, 350000, 750000, 1500000, 3000000],
+    "ORG_RECRUITMENT": [50000, 100000, 200000, 500000, 1000000],
+    "ORG_HACKING": [300000, 600000, 1200000]
+  },
+  "GangWarSettings": {
+    "MinMembersToStart": 3,
+    "MaxMembersPerTeam": 15,
+    "Duration": 15,
+    "Cooldown": 60,
+    "BaseReward": 50000,
+    "RewardPerKill": 2500,
+    "ReputationWin": 100,
+    "ReputationLose": -50,
+    "TerritoryIncomePerHour": 5000,
+    "WarVehicleSpawnCooldown": 120
+  },
+  "NitroSettings": {
+    "BasePower": 25.0,
+    "MaxPower": 50.0,
+    "BaseCapacity": 100.0,
+    "BaseRechargeRate": 0.15,
+    "BaseDrainRate": 1.2,
+    "UpgradeCosts": [10000, 25000, 50000, 100000, 200000],
+    "TurboLaunchCooldown": 15000,
+    "JumpBoostCooldown": 30000,
+    "DriftBoostMultiplier": 1.5
+  },
+  "SpeedBoostUpgrades": {
+    "NOS_POWER_1": { "price": 10000, "effect": 30.0 },
+    "NOS_POWER_2": { "price": 25000, "effect": 35.0 },
+    "NOS_POWER_3": { "price": 50000, "effect": 40.0 },
+    "NOS_POWER_4": { "price": 100000, "effect": 45.0 },
+    "NOS_POWER_5": { "price": 200000, "effect": 50.0 },
+    "NOS_CAPACITY_1": { "price": 8000, "effect": 120.0 },
+    "NOS_CAPACITY_2": { "price": 20000, "effect": 140.0 },
+    "NOS_CAPACITY_3": { "price": 45000, "effect": 160.0 },
+    "NOS_RECHARGE_1": { "price": 15000, "effect": 0.2 },
+    "NOS_RECHARGE_2": { "price": 35000, "effect": 0.3 },
+    "NOS_RECHARGE_3": { "price": 75000, "effect": 0.5 },
+    "TURBO_LAUNCH_1": { "price": 20000, "effect": 40.0 },
+    "TURBO_LAUNCH_2": { "price": 50000, "effect": 50.0 },
+    "JUMP_BOOST_1": { "price": 30000, "effect": 15.0 },
+    "JUMP_BOOST_2": { "price": 75000, "effect": 20.0 }
+  },
+  "DriveBySettings": {
+    "BaseBonusPerKill": 500,
+    "MaxStackingKills": 10,
+    "Duration": 60,
+    "CooldownBetweenDriveBys": 300,
+    "ReputationPerKill": 5
+  },
+  "DrugRouteSettings": {
+    "MinReward": 10000,
+    "MaxReward": 100000,
+    "RiskMultipliers": [1.0, 1.5, 2.5],
+    "PoliceAlertChance": [0.1, 0.3, 0.6],
+    "TimeLimitMinutes": [10, 7, 5],
+    "CooldownMinutes": 30
+  },
+  "ConvoySettings": {
+    "MinMembers": 3,
+    "BonusPerKm": 100,
+    "MaxBonus": 50000,
+    "FormationBonus": 1.5,
+    "ProtectionBonus": 2.0
+  }
+}
