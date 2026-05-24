@@ -22,9 +22,15 @@ module.exports = {
             "json": path.resolve(__dirname, './src/json'),
             "lang": path.resolve(__dirname, './lang')
         },
+        conditionNames: ['svelte', 'browser', 'import'],
+        extensions: ['.mjs', '.js', '.svelte'],
+        mainFields: ['svelte', 'browser', 'module', 'main'],
+        fallback: {
+            "querystring": require.resolve("querystring"),
+            "url": require.resolve("url"),
+        },
     },
     output: {
-        //path: path.resolve(__dirname, 'public'),
         path: path.resolve(__dirname, "./../client_packages/interface"),
 		filename: `buildru/bundle.js`,
         libraryTarget: "umd",
@@ -47,44 +53,44 @@ module.exports = {
 				use: {
 					loader: 'svelte-loader',
 					options: {
-						hotReload: true
+						emitCss: true,
+						hotReload: !prod
 					}
 				}
+            },
+            {
+                test: /node_modules\/svelte\/.*\.mjs$/,
+                resolve: {
+                    fullySpecified: false,
+                },
             },
             {
                 test: /\.(c|sac|sa|sc)ss$/i,
                 enforce: "pre",
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader, //4. Extract css into files\
+                        loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../', // опускаемся из build директории
+                            publicPath: '../',
                         }
                     },
-                    "css-loader", { // 3 Turns css into javascript
-                        loader: "postcss-loader", //2. Runs Autoprefixer
+                    "css-loader", {
+                        loader: "postcss-loader",
                         options: {
-                            ident: "postcss",
-                            plugins: [require("autoprefixer")]
+                            postcssOptions: {
+                                plugins: [require("autoprefixer")]
+                            }
                         }
                     },
-                    "sass-loader" // 1. Turns sass into css
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            api: "legacy"
+                        }
+                    }
                 ]
             },
-            // {
-                // test: /\.(jpe?g|png|svg?|gif)$/i,
-                // use: [{
-                    // loader: 'file-loader',
-                    // options: {
-                        // esModule: false,
-                        // name: '[path]/[name].[ext]',
-                        // publicPath: (url, resourcePath, context) => {
-                            // url = url.split('/').filter(x => x).join('/');
-                            // return urlPath + url;
-                        // }
-                    // }
-                // }]
-            // },
+            // image rule commented out in original
             {
                 test: /\.(webm|ttf|eot|woff(2)?|ogg|mp3|wav|mpe?g)(\?[a-z0-9=&.]+)?$/,
                 use: [{
@@ -99,8 +105,7 @@ module.exports = {
     mode,
     devtool: prod ? false: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-		inline: true,
+        static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8888
     }

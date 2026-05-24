@@ -22,6 +22,13 @@ module.exports = {
             "json": path.resolve(__dirname, './src/json'),
             "lang": path.resolve(__dirname, './lang')
         },
+        conditionNames: ['svelte', 'browser', 'import'],
+        extensions: ['.mjs', '.js', '.svelte'],
+        mainFields: ['svelte', 'browser', 'module', 'main'],
+        fallback: {
+            "querystring": require.resolve("querystring"),
+            "url": require.resolve("url"),
+        },
     },
     output: {
         path: path.resolve(__dirname, "./../client_packages/interface"),
@@ -46,28 +53,41 @@ module.exports = {
 				use: {
 					loader: 'svelte-loader',
 					options: {
-						hotReload: true
+						emitCss: true,
+						hotReload: !prod
 					}
 				}
+            },
+            {
+                test: /node_modules\/svelte\/.*\.mjs$/,
+                resolve: {
+                    fullySpecified: false,
+                },
             },
             {
                 test: /\.(c|sac|sa|sc)ss$/i,
                 enforce: "pre",
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader, //4. Extract css into files\
+                        loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../', // опускаемся из build директории
+                            publicPath: '../',
                         }
                     },
-                    "css-loader", { // 3 Turns css into javascript
-                        loader: "postcss-loader", //2. Runs Autoprefixer
+                    "css-loader", {
+                        loader: "postcss-loader",
                         options: {
-                            ident: "postcss",
-                            plugins: [require("autoprefixer")]
+                            postcssOptions: {
+                                plugins: [require("autoprefixer")]
+                            }
                         }
                     },
-                    "sass-loader" // 1. Turns sass into css
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            api: "legacy"
+                        }
+                    }
                 ]
             },
             {
@@ -98,8 +118,7 @@ module.exports = {
     mode,
     devtool: prod ? false: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-		inline: true,
+        static: path.join(__dirname, 'dist'),
         compress: true,
         port: 8888
     }
