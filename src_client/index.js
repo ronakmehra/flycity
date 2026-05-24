@@ -305,6 +305,7 @@ require('./animation/index.js');
 //require('./configs/barber.js');
 //require('./configs/tattoo.js');
 
+require('./utils/performance.js');
 require('./utils/checkpoints.js');
 require('./utils/nativeui.bundle.js');
 require('./utils/other.js');

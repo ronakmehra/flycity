@@ -1,5 +1,6 @@
 global.deathTimerOn = false;
 let deathTimer = 0;
+let deathEffectActive = false;
 
 
 // Disable auto screen fade
@@ -19,10 +20,10 @@ gm.events.add('DeathTimer', (time) => {
 		} else if (global.deathTimerOn) {
 			mp.events.call("clearCarryng");
 			global.deathTimerOn = false;
+			deathEffectActive = false;
 			global.localplayer.setInvincible(false);
 			global.binderFunctions.c_globalEscape (true);
 			mp.events.call("client.phone.close");
-			//mp.events.call('hud.tip', "location", "ems");
 		}
 	}
 	catch (e) 
@@ -71,6 +72,15 @@ gm.events.add("playerDeath", async (player, reason, killer) =>  {
 			mp.game.audio.playSoundFrontend(-1, "Bed", "WastedSounds", true);
 			mp.game.graphics.startScreenEffect("DeathFailMPIn", 0, true);
 			mp.game.cam.setCamEffect(1);
+			deathEffectActive = true;
+			
+			// Enhanced death camera - slow motion effect
+			mp.game.gameplay.setTimeScale(0.3);
+			setTimeout(() => {
+				if (deathEffectActive) {
+					mp.game.gameplay.setTimeScale(1.0);
+				}
+			}, 2000);
 		}
 	}
 	catch (e) 
@@ -84,9 +94,12 @@ gm.events.add("playerSpawn", () => {
 	{
         if (!global.loggedin) return;
 		global.deathTimerOn = false;
+		deathEffectActive = false;
 		global.localplayer.setInvincible(false);
 		mp.game.graphics.stopScreenEffect("DeathFailMPIn");
+		mp.game.graphics.stopScreenEffect("DeathFailMPDark");
 		mp.game.cam.setCamEffect(0);
+		mp.game.gameplay.setTimeScale(1.0);
 		global.lastCheck = new Date().getTime();
 		global.closeDialog();
 	}
@@ -131,36 +144,29 @@ gm.events.add("render", () => {
 			const minutes = Math.trunc(secondsLeft / 60);
 			const seconds = secondsLeft % 60;
 
-			mp.game.graphics.drawText(translateText("До попадания в больницу: {0}:{1}", global.formatIntZero(minutes, 2), global.formatIntZero(seconds, 2)), [0.5, 0.8], {
+			// Enhanced death timer display with pulsing effect
+			const alpha = 180 + Math.floor(Math.sin(new Date().getTime() / 500) * 50);
+			
+			mp.game.graphics.drawText(translateText("ВЫ БЕЗ СОЗНАНИЯ"), [0.5, 0.72], {
+				font: 0,
+				color: [231, 29, 54, alpha],
+				scale: [0.55, 0.55],
+				outline: true
+			});
+
+			mp.game.graphics.drawText(translateText("До попадания в больницу: {0}:{1}", global.formatIntZero(minutes, 2), global.formatIntZero(seconds, 2)), [0.5, 0.78], {
 				font: 0,
 				color: [255, 255, 255, 200],
 				scale: [0.35, 0.35],
 				outline: true
 			});
+
+			mp.game.graphics.drawText(translateText("Ожидайте помощь медиков или используйте меню"), [0.5, 0.83], {
+				font: 0,
+				color: [255, 255, 255, 120],
+				scale: [0.25, 0.25],
+				outline: true
+			});
 		}
 	}
-
-	/*if (
-		mp.game.controls.isControlPressed(0, 32) ||
-		mp.game.controls.isControlPressed(0, 33) ||
-		mp.game.controls.isControlPressed(0, 321) ||
-		mp.game.controls.isControlPressed(0, 34) ||
-		mp.game.controls.isControlPressed(0, 35) ||
-		mp.game.controls.isControlPressed(0, 24) ||
-		global.isDeath == true
-	)
-	{
-		global.afkSecondsCount = 0;
-		mp.events.call('updateAFKStatus_client', false);
-	}
-	else if (global.localplayer.isInAnyVehicle(false) && global.localplayer.vehicle != null && global.localplayer.vehicle.getSpeed() != 0)
-	{
-		global.afkSecondsCount = 0;
-		mp.events.call('updateAFKStatus_client', false);
-	}
-	else if(global.spectating)
-	{ // Чтобы не кикало администратора в режиме слежки
-		//global.afkSecondsCount = 0; todo check
-		//mp.events.call('updateAFKStatus_client', false);
-	}*/
 });
