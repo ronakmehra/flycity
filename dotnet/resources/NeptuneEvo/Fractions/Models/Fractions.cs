@@ -21,6 +21,11 @@
         THELOST,
         MERRYWEATHER,
         SHERIFF,
-        JAIL
+        JAIL,
+        DRUGLORD,
+        DRUGMAFIA,
+        WEAPONSMUGGLERS,
+        WATERPOLICE,
+        COASTGUARD
     }
 }

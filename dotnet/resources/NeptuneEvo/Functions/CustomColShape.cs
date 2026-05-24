@@ -214,6 +214,60 @@ namespace NeptuneEvo.Functions
 
         // Vehicle Dealership
         VehicleDealership,
+
+        // Newspaper Delivery Job
+        JobNewspaperDelivery,
+        JobNewspaperDepot,
+
+        // Drug Lord
+        DrugLordLab,
+        DrugSalePoint,
+        DrugStashHouse,
+        DrugProcessing,
+
+        // Drug Mafia
+        DrugMafiaHQ,
+        DrugMafiaImport,
+        DrugMafiaDistribution,
+        DrugMafiaTerritory,
+        MoneyLaundering,
+
+        // Weapon Smugglers
+        WeaponSmugglersHQ,
+        ArmsWorkshop,
+        SmugglePickup,
+        SmuggleDropoff,
+
+        // Smuggling Routes (Cayo Perico <-> Los Santos)
+        SmugglingMissionStart,
+        PoliceSmuggleCheckpoint,
+        CoastGuardPatrol,
+        CayoPericoDeparture,
+        LSArrivalDock,
+
+        // Water Police
+        FractionWaterPolice,
+        FractionWaterPoliceArrest,
+        FracWaterPolice,
+        WaterPoliceBoatSpawn,
+
+        // Coast Guard
+        FractionCoastGuard,
+        FracCoastGuard,
+        CoastGuardBoatDock,
+        CoastGuardHeliPad,
+        CoastGuardDetention,
+        CoastGuardRescueStation,
+
+        // LS News Newspaper Job
+        LSNewsNewspaper,
+        LSNewsPrintingPress,
+        LSNewsLoadingDock,
+        NewspaperStand,
+
+        // Auction House
+        AuctionHouse,
+        AuctionHouseBlackMarket,
     }
     class CustomColShape : Script
     {

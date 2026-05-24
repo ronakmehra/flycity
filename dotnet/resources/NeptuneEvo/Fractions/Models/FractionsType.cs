@@ -7,6 +7,8 @@
         Gangs,
         Gov,
         Nongov,
-        Bikers
+        Bikers,
+        DrugCartel,
+        Smugglers
     }
 }

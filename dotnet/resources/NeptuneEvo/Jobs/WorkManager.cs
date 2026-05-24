@@ -60,6 +60,7 @@ namespace NeptuneEvo.Jobs
             "Fisher",
             "Miner",
             "Hunter",
+            "Newspaper Deliverer",
         };
 
         public static SortedList<int, Vector3> Points = new SortedList<int, Vector3>
@@ -78,6 +79,7 @@ namespace NeptuneEvo.Jobs
             {11, new Vector3(-1850.5, -1248.8, 8.6) },  // Fisher
             {12, new Vector3(2954.7, 2774.1, 39.8) },  // Miner
             {13, new Vector3(-735.7, 5526.5, 33.5) },  // Hunter
+            {14, new Vector3(-1076.5, -247.2, 37.8) },  // Newspaper Delivery
         };
 
         private static SortedList<int, string> JobList = new SortedList<int, string>
@@ -95,6 +97,7 @@ namespace NeptuneEvo.Jobs
             {11, "Fisher" },
             {12, "Miner" },
             {13, "Hunter" },
+            {14, "Newspaper Deliverer" },
         };
         
         public static void Layoff(ExtPlayer player)

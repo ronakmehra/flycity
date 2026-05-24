@@ -498,6 +498,11 @@ namespace NeptuneEvo.Fractions
             {(int) Models.Fractions.THELOST, FractionsType.Bikers}, // The Lost
             {(int) Models.Fractions.MERRYWEATHER, FractionsType.Nongov}, // Merryweather
             {(int) Models.Fractions.SHERIFF, FractionsType.Gov}, // LSPD police
+            {(int) Models.Fractions.DRUGLORD, FractionsType.DrugCartel}, // Drug Lord
+            {(int) Models.Fractions.DRUGMAFIA, FractionsType.DrugCartel}, // Drug Mafia
+            {(int) Models.Fractions.WEAPONSMUGGLERS, FractionsType.Smugglers}, // Weapon Smugglers
+            {(int) Models.Fractions.WATERPOLICE, FractionsType.Gov}, // Water Police
+            {(int) Models.Fractions.COASTGUARD, FractionsType.Gov}, // Coast Guard
         };
         public static IReadOnlyDictionary<int, string> FractionNames = new Dictionary<int, string>()
         {
@@ -520,6 +525,11 @@ namespace NeptuneEvo.Fractions
             {(int) Models.Fractions.THELOST, "The Lost" },
             {(int) Models.Fractions.MERRYWEATHER, "Merryweather Security" },
             {(int) Models.Fractions.SHERIFF, "Sheriff" },
+            {(int) Models.Fractions.DRUGLORD, "Drug Lord" },
+            {(int) Models.Fractions.DRUGMAFIA, "Drug Mafia" },
+            {(int) Models.Fractions.WEAPONSMUGGLERS, "Weapon Smugglers" },
+            {(int) Models.Fractions.WATERPOLICE, "Water Police" },
+            {(int) Models.Fractions.COASTGUARD, "Coast Guard" },
         };
         //
         
