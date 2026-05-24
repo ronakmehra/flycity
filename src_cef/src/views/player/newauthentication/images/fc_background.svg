@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="80%">
+      <stop offset="0%" stop-color="#001428" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#000509" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#00C6FF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <linearGradient id="vLineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#0072FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+    <filter id="blur4"><feGaussianBlur stdDeviation="4"/></filter>
+    <filter id="blur10"><feGaussianBlur stdDeviation="10"/></filter>
+    <filter id="blur20"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  
+  <!-- Dark Background -->
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  
+  <!-- Subtle grid lines - horizontal -->
+  <line x1="0" y1="270" x2="1920" y2="270" stroke="url(#lineGrad)" stroke-width="1" opacity="0.5"/>
+  <line x1="0" y1="540" x2="1920" y2="540" stroke="url(#lineGrad)" stroke-width="1"/>
+  <line x1="0" y1="810" x2="1920" y2="810" stroke="url(#lineGrad)" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Subtle grid lines - vertical -->
+  <line x1="480" y1="0" x2="480" y2="1080" stroke="url(#vLineGrad)" stroke-width="1"/>
+  <line x1="960" y1="0" x2="960" y2="1080" stroke="url(#vLineGrad)" stroke-width="1.5"/>
+  <line x1="1440" y1="0" x2="1440" y2="1080" stroke="url(#vLineGrad)" stroke-width="1"/>
+  
+  <!-- Glowing orbs in background -->
+  <circle cx="320" cy="600" r="200" fill="#0072FF" opacity="0.05" filter="url(#blur20)"/>
+  <circle cx="1600" cy="400" r="250" fill="#00C6FF" opacity="0.04" filter="url(#blur20)"/>
+  <circle cx="960" cy="1080" r="300" fill="#0040AA" opacity="0.08" filter="url(#blur20)"/>
+  
+  <!-- Corner decorative elements -->
+  <rect x="40" y="40" width="80" height="2" fill="#00C6FF" opacity="0.4"/>
+  <rect x="40" y="40" width="2" height="80" fill="#00C6FF" opacity="0.4"/>
+  <rect x="1800" y="40" width="80" height="2" fill="#00C6FF" opacity="0.4"/>
+  <rect x="1878" y="40" width="2" height="80" fill="#00C6FF" opacity="0.4"/>
+  <rect x="40" y="1038" width="80" height="2" fill="#00C6FF" opacity="0.25"/>
+  <rect x="40" y="960" width="2" height="80" fill="#00C6FF" opacity="0.25"/>
+  
+  <!-- Small dot matrix (top-left ambiance) -->
+  <g opacity="0.12" fill="#00C6FF">
+    <circle cx="120" cy="120" r="2"/>
+    <circle cx="145" cy="120" r="2"/>
+    <circle cx="170" cy="120" r="2"/>
+    <circle cx="120" cy="145" r="2"/>
+    <circle cx="145" cy="145" r="2"/>
+    <circle cx="170" cy="145" r="2"/>
+    <circle cx="120" cy="170" r="2"/>
+    <circle cx="145" cy="170" r="2"/>
+    <circle cx="170" cy="170" r="2"/>
+  </g>
+  
+  <!-- Copyright watermark -->
+  <text x="960" y="1060" font-family="Arial,sans-serif" font-size="12" fill="rgba(0,198,255,0.2)" text-anchor="middle" letter-spacing="4">FLYCITY ROLEPLAY  ·  VOID&amp;CO  ·  2024-2026</text>
+</svg>

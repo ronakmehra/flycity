@@ -1,0 +1,9 @@
+{
+	"maxplayers" : 500,
+	"name" : "FlyCity Roleplay | English | x5 Money & XP", 
+	"gamemode" : "freeroam", 
+	"stream-distance" : 750.0,
+	"announce" : true,
+	"csharp" : "enabled",
+	"port": 22005
+}

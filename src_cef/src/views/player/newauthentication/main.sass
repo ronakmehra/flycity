@@ -1,0 +1,1197 @@
+@import @/views/assets/css/main.sass
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap")
+
+/* ===== FLYCITY ROLEPLAY - AUTH STYLES ===== */
+/* Developed by void&co */
+
+// ─── Color Palette ───────────────────────────────────────
+$fc-primary:     #00C6FF
+$fc-secondary:   #0072FF
+$fc-accent:      #00E5FF
+$fc-dark:        #040D1A
+$fc-darker:      #020811
+$fc-panel:       rgba(4, 16, 34, 0.85)
+$fc-border:      rgba(0, 198, 255, 0.25)
+$fc-border-glow: rgba(0, 198, 255, 0.6)
+$fc-text:        rgba(210, 235, 255, 1.0)
+$fc-muted:       rgba(140, 185, 220, 0.7)
+$fc-red:         #FF2D55
+$fc-green:       #00E676
+$fc-gold:        #FFD700
+
+// ─── Keyframe Animations ─────────────────────────────────
+@keyframes fc-pulse-border
+    0%   { border-color: rgba(0, 198, 255, 0.2); box-shadow: 0 0 0px rgba(0,198,255,0); }
+    50%  { border-color: rgba(0, 198, 255, 0.7); box-shadow: 0 0 15px rgba(0,198,255,0.3); }
+    100% { border-color: rgba(0, 198, 255, 0.2); box-shadow: 0 0 0px rgba(0,198,255,0); }
+
+@keyframes fc-glow-pulse
+    0%   { opacity: 0.4; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.4; }
+
+@keyframes fc-float
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+
+@keyframes fc-scan-line
+    0%   { top: -2px; }
+    100% { top: 100%; }
+
+@keyframes fc-fade-in-up
+    from
+        opacity: 0
+        transform: translateY(20px)
+    to
+        opacity: 1
+        transform: translateY(0)
+
+@keyframes fc-shimmer
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+
+@keyframes fc-spin-slow
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+
+@keyframes fc-bg-drift
+    0%   { transform: scale(1.05) translateX(0) translateY(0); }
+    33%  { transform: scale(1.08) translateX(-8px) translateY(-5px); }
+    66%  { transform: scale(1.05) translateX(5px) translateY(-10px); }
+    100% { transform: scale(1.05) translateX(0) translateY(0); }
+
+// ─── Mixin helpers ───────────────────────────────────────
+@mixin glass-panel
+    background: $fc-panel
+    border: 1px solid $fc-border
+    backdrop-filter: blur(18px) saturate(1.4)
+    -webkit-backdrop-filter: blur(18px) saturate(1.4)
+
+@mixin hover-glow
+    transition: all 0.25s ease
+    &:hover
+        border-color: $fc-border-glow
+        box-shadow: 0 0 20px rgba(0,198,255,0.25), inset 0 0 20px rgba(0,198,255,0.05)
+
+// ─── Popup overlay ───────────────────────────────────────
+.newauthentication__popup
+    color: $fc-text
+    width: 100%
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    z-index: 10000
+    background: rgba(2,8,17,0.92)
+    backdrop-filter: blur(24px)
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    animation: fc-fade-in-up 0.4s ease
+    .newauthentication__popup_title
+        @include fluid("font-size", 46)
+        @include fluid("line-height", 62)
+        @include fluid("margin-bottom", 10)
+        font-weight: 700
+        font-family: 'Orbitron', sans-serif
+        background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+        -webkit-background-clip: text
+        -webkit-text-fill-color: transparent
+    .newauthentication__popup_subtitle
+        @include fluid("font-size", 32)
+        @include fluid("line-height", 46)
+        opacity: 0.7
+        color: $fc-muted
+    .newauthentication__popup_iconmail
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: 0.04
+        @include fluid("font-size", 220)
+
+// ─── Root element ────────────────────────────────────────
+#newauthentication
+    font-family: 'Rajdhani', 'Arial', sans-serif
+    width: 100%
+    height: 100%
+    position: relative
+    display: flex
+    flex-direction: column
+    color: $fc-text
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 40, 80, 0) 0%, rgba(2, 8, 17, 0.85) 100%)
+    background-image: url('images/fc_background.svg')
+    background-size: cover
+    background-position: center
+    background-repeat: no-repeat
+    @include fluid("font-size", 18)
+
+    // Background gradient overlay
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(135deg, rgba(0,198,255,0.04) 0%, rgba(4,16,34,0) 50%, rgba(0,114,255,0.06) 100%)
+        pointer-events: none
+        z-index: 0
+
+    // Animated scan-line effect (subtle)
+    &::after
+        content: ''
+        position: absolute
+        left: 0
+        width: 100%
+        height: 2px
+        background: linear-gradient(90deg, transparent, rgba(0,198,255,0.15), transparent)
+        animation: fc-scan-line 8s linear infinite
+        pointer-events: none
+        z-index: 1
+
+    // nested popup override
+    .newauthentication__popup
+        position: absolute
+        left: 0
+        top: 0
+        z-index: 10000
+        background: rgba(2,8,17,0.92)
+        backdrop-filter: blur(24px)
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-direction: column
+        .newauthentication__popup_title
+            @include fluid("font-size", 46)
+            @include fluid("line-height", 62)
+            @include fluid("margin-bottom", 10)
+            font-weight: 700
+        .newauthentication__popup_subtitle
+            @include fluid("font-size", 32)
+            @include fluid("line-height", 46)
+            opacity: 0.7
+        .newauthentication__popup_iconmail
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            opacity: 0.04
+            @include fluid("font-size", 220)
+
+    .auth__small_text
+        @include fluid("font-size", 12)
+        @include fluid("margin-top", 16)
+        opacity: 0.6
+        color: $fc-muted
+
+    .box-center
+        display: flex
+        align-items: center
+        justify-content: center
+
+    // ─── TOP HEADER ─────────────────────────────────────
+    .header
+        width: 100%
+        @include fluid("height", 56)
+        @include fluid("margin-top", 24)
+        @include fluid("padding-left", 40)
+        @include fluid("padding-right", 40)
+        color: $fc-muted
+        position: relative
+        z-index: 10
+        display: flex
+        align-items: center
+        justify-content: space-between
+        box-sizing: border-box
+
+        // Subtle bottom rule
+        &::after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 5%
+            width: 90%
+            height: 1px
+            background: linear-gradient(90deg, transparent, $fc-border-glow, transparent)
+            opacity: 0.5
+
+        .box-flex
+            display: flex
+            align-items: center
+            gap: 0
+
+        // ─── LOGO ─────────────────────────────────────
+        .header__logo
+            @include fluid("width", 260)
+            @include fluid("height", 52)
+            background-image: url('images/flycity_logo.svg')
+            background-size: contain
+            background-position: left center
+            background-repeat: no-repeat
+            // fallback text logo if SVG fails
+            &::after
+                content: ''
+
+        // ─── MONEY DISPLAY ─────────────────────────────
+        .header__money
+            @include fluid("width", 180)
+            @include fluid("height", 36)
+            display: flex
+            align-items: center
+            justify-content: flex-end
+            font-weight: 600
+            @include fluid("font-size", 16)
+            color: $fc-gold
+            font-family: 'Rajdhani', sans-serif
+            letter-spacing: 1px
+            .header__money_flycoins
+                @include fluid("width", 30)
+                @include fluid("height", 30)
+                @include fluid("margin-left", 8)
+                background-image: url('images/flycoins.png')
+                background-size: contain
+                background-position: center
+                background-repeat: no-repeat
+                opacity: 0.9
+
+        // ─── NAV KEYS (Q / E) ─────────────────────────
+        .header-key
+            @include fluid("width", 38)
+            @include fluid("height", 38)
+            box-sizing: border-box
+            border-radius: 6px
+            @include fluid("margin-right", 24)
+            cursor: pointer
+            color: $fc-primary
+            border: 1px solid rgba(0,198,255,0.35)
+            font-family: 'Orbitron', sans-serif
+            font-weight: 700
+            @include fluid("font-size", 13)
+            transition: all 0.2s ease
+            background: rgba(0,198,255,0.06)
+            &.active
+                background: $fc-primary
+                color: $fc-darker
+                box-shadow: 0 0 16px rgba(0,198,255,0.5)
+            &:last-child
+                margin-right: 0
+                @include fluid("margin-left", 24)
+            &:hover
+                background: rgba(0,198,255,0.15)
+                border-color: $fc-primary
+                box-shadow: 0 0 10px rgba(0,198,255,0.3)
+
+        // ─── NAV TABS ──────────────────────────────────
+        .header__element
+            display: flex
+            align-items: center
+            @include fluid("height", 56)
+            font-family: 'Rajdhani', sans-serif
+            font-weight: 600
+            @include fluid("font-size", 15)
+            @include fluid("margin-left", 20)
+            @include fluid("margin-right", 20)
+            color: rgba(140,185,220,0.65)
+            cursor: pointer
+            letter-spacing: 1.5px
+            text-transform: uppercase
+            position: relative
+            transition: color 0.2s ease
+            &::after
+                content: ''
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 0
+                height: 2px
+                background: linear-gradient(90deg, $fc-primary, $fc-secondary)
+                transition: width 0.25s ease
+            &:hover
+                color: rgba(210,235,255,0.9)
+                &::after
+                    width: 100%
+            &.active
+                color: $fc-primary
+                text-shadow: 0 0 12px rgba(0,198,255,0.6)
+                &::after
+                    width: 100%
+                    background: linear-gradient(90deg, $fc-primary, $fc-accent)
+                    box-shadow: 0 0 8px rgba(0,198,255,0.5)
+
+    // ─── MAIN AUTH PANEL ──────────────────────────────────
+    .main
+        width: 100%
+        height: 100%
+        @include fluid("padding-top", 80)
+        @include fluid("padding-right", 60)
+        display: flex
+        justify-content: flex-end
+        position: relative
+        z-index: 5
+        color: $fc-muted
+
+        .main__box
+            @include fluid("width", 400)
+            display: flex
+            justify-content: space-between
+            align-items: flex-start
+            animation: fc-fade-in-up 0.5s ease 0.1s both
+
+            .main__forms
+                @include fluid("width", 366)
+                display: flex
+                flex-direction: column
+                gap: 0
+
+    // ─── FORM BUTTONS ─────────────────────────────────────
+    .main__buttons_box
+        display: flex
+        justify-content: space-between
+        &.main__buttons_registration
+            justify-content: space-between
+        .main__input
+            @include fluid("width", 260)
+
+    .main__button
+        @include glass-panel
+        @include fluid("height", 68)
+        border-radius: 8px
+        display: flex
+        text-transform: uppercase
+        cursor: pointer
+        color: $fc-text
+        @include fluid("margin-right", 18)
+        letter-spacing: 1px
+        font-weight: 600
+        transition: all 0.25s ease
+        position: relative
+        overflow: hidden
+
+        // Shimmer on hover
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            left: -100%
+            width: 60%
+            height: 100%
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)
+            transform: skewX(-20deg)
+            transition: left 0.4s ease
+
+        &:hover
+            background: rgba(0,198,255,0.1)
+            border-color: rgba(0,198,255,0.5)
+            box-shadow: 0 0 20px rgba(0,198,255,0.2)
+            &::before
+                left: 150%
+
+        &:last-child
+            margin-right: 0
+
+        &.main_button_size_large
+            @include fluid("width", 262)
+            align-self: center
+        &.main_button_size_small
+            @include fluid("width", 68)
+            display: flex
+            flex-direction: column
+        b
+            @include fluid("font-size", 42)
+        &.main__button_restore
+            width: 100%
+            @include fluid("margin-top", 12)
+            opacity: 0.8
+            &:hover
+                opacity: 1
+        &.main__button_mail
+            @include fluid("width", 354)
+            align-self: center
+            font-weight: 700
+            @include fluid("font-size", 20)
+            display: flex
+            align-items: center
+            justify-content: center
+            @include fluid("margin-top", 40)
+            transition: all 0.3s ease
+            z-index: 10000
+            &:hover
+                opacity: 1
+                background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+                border-color: transparent
+                color: $fc-darker
+                box-shadow: 0 0 30px rgba(0,198,255,0.5)
+
+        .main__button_right
+            height: 100%
+            @include fluid("width", 88)
+            display: flex
+            align-items: center
+            justify-content: center
+            border-left: 1px solid rgba(0,198,255,0.2)
+        .main__button_square
+            @include fluid("width", 34)
+            @include fluid("height", 34)
+            border-radius: 4px
+            background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+            color: $fc-darker
+            display: flex
+            align-items: center
+            justify-content: center
+            font-weight: 700
+            box-shadow: 0 0 12px rgba(0,198,255,0.4)
+        .main__button_left
+            height: 100%
+            width: 100%
+            box-sizing: border-box
+            display: flex
+            align-items: center
+            justify-content: center
+            font-weight: 700
+            @include fluid("font-size", 16)
+            font-family: 'Rajdhani', sans-serif
+            letter-spacing: 2px
+            &.none
+                border: none
+        .main__button_top
+            box-sizing: border-box
+            width: 100%
+            height: 50%
+            border-bottom: 1px solid rgba(0,198,255,0.2)
+        .main__button_bottom
+            height: 45%
+            width: 100%
+            display: flex
+            align-items: center
+            justify-content: center
+            .main__button_rectangle
+                @include fluid("width", 36)
+                @include fluid("height", 36)
+                border-radius: 4px
+                background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+                color: $fc-darker
+                font-weight: 700
+                display: flex
+                align-items: center
+                justify-content: center
+
+    .main__scroll
+        @include fluid("width", 4)
+        @include fluid("height", 140)
+        background: rgba(0,198,255,0.12)
+        border-radius: 4px
+        box-sizing: border-box
+        position: relative
+        overflow: hidden
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 40%
+            background: linear-gradient(180deg, $fc-primary, $fc-secondary)
+            border-radius: 4px
+            animation: fc-float 3s ease-in-out infinite
+        &.big
+            height: auto
+
+    // ─── NEWS SECTION ─────────────────────────────────────
+    .news
+        width: 100%
+        height: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        @include fluid("padding-top", 70)
+        overflow-x: auto
+        @include fluid("height", 946)
+        ::-webkit-scrollbar
+            width: resize(4)
+            border-radius: resize(25)
+        ::-webkit-scrollbar-track
+            background: rgba(4,16,34,0.3)
+            border-radius: 100px
+        ::-webkit-scrollbar-thumb
+            background: rgba(0,198,255,0.25)
+            border-radius: 100px
+            &:hover
+                background: rgba(0,198,255,0.45)
+        .news-box
+            @include fluid("width", 600)
+            display: flex
+            flex-direction: column
+            align-items: center
+            @include fluid("margin-bottom", 20)
+            height: inherit
+            &:hover, &.active
+                .news-box__text_background
+                    opacity: 1
+                    @include fluid("margin-top", 216)
+                    height: auto
+                    transition: all 1s
+            .news-box__header-img
+                background-image: url('./images/background.png')
+                background-size: cover
+                background-position: center
+                background-repeat: no-repeat
+                @include fluid("width", 600)
+                @include fluid("height", 220)
+                text-transform: uppercase
+                @include fluid("font-size", 20)
+                display: flex
+                @include fluid("padding-left", 30)
+                @include fluid("padding-bottom", 15)
+                border-radius: 8px
+                align-items: flex-end
+                position: absolute
+                z-index: 1
+                overflow: hidden
+                &::after
+                    content: ''
+                    position: absolute
+                    inset: 0
+                    background: linear-gradient(0deg, rgba(4,16,34,0.8) 0%, transparent 60%)
+            .news-box__text_background
+                @include fluid("font-size", 16)
+                @include fluid("width", 580)
+                @include fluid("padding-top", 15)
+                @include fluid("padding-right", 30)
+                @include fluid("padding-bottom", 15)
+                @include fluid("padding-left", 30)
+                @include fluid("line-height", 25)
+                z-index: 0
+                font-weight: 400
+                box-sizing: border-box
+                opacity: 1
+                height: auto
+                border: 1px solid $fc-border
+                background: $fc-panel
+                backdrop-filter: blur(12px)
+                border-radius: 8px
+                .subtitle
+                    @include fluid("font-size", 14)
+                    color: $fc-muted
+                    font-weight: 600
+                .news-box__element
+                    display: flex
+                    @include fluid("margin-bottom", 10)
+                    &:first-child
+                        @include fluid("margin-bottom", 0)
+                    .news-box__square
+                        @include fluid("max-width", 14)
+                        @include fluid("height", 14)
+                        box-sizing: border-box
+                        @include fluid("border", 3, "solid rgba(0,198,255,0.4)")
+                        background-color: $fc-primary
+                        border-radius: 3px
+                    .news-box__text
+                        font-weight: 300
+                        font-style: normal
+                .box-flex
+                    display: flex
+                .square_box
+                    @include fluid("padding-top", 5)
+                    @include fluid("min-width", 28)
+
+    // ─── CHARACTERS SECTION ───────────────────────────────
+    .newauthentification__characters
+        display: flex
+        align-items: flex-start
+        @include fluid("padding-top", 50)
+        justify-content: space-between
+        height: 100%
+        width: 100%
+        @include fluid("padding-right", 80)
+        @include fluid("padding-left", 80)
+        .auth__characters
+            @include fluid("margin-left", 40)
+            .auth__characters_header
+                display: flex
+                align-items: center
+                @include fluid("font-size", 22)
+                @include fluid("line-height", 28)
+                text-transform: uppercase
+                color: $fc-primary
+                @include fluid("margin-bottom", 50)
+                font-family: 'Orbitron', sans-serif
+                letter-spacing: 2px
+                span
+                    @include fluid("margin-right", 20)
+            .auth__characters_hover
+                @include fluid("margin-top", -80)
+                z-index: 0
+                display: flex
+                align-items: center
+                justify-content: space-around
+                @include fluid("width", 300)
+                @include fluid("min-height", 80)
+                border-radius: 8px
+                opacity: 0
+                &.column
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                .box-between
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 100%
+                    @include fluid("margin-bottom", 16)
+                    @include fluid("margin-top", 16)
+                .auth__characters_button
+                    position: relative
+                    @include fluid("width", 142)
+                    @include fluid("height", 42)
+                    border: 1px solid $fc-border
+                    @include fluid("padding-right", 14)
+                    @include fluid("padding-left", 14)
+                    display: flex
+                    align-items: center
+                    @include fluid("font-size", 14)
+                    border-radius: 6px
+                    box-sizing: border-box
+                    transition: all 0.2s ease
+                    &:hover, &.active
+                        background: rgba(0,198,255,0.1)
+                        border-color: $fc-border-glow
+                        box-shadow: 0 0 12px rgba(0,198,255,0.2)
+                    .box
+                        @include fluid("min-width", 30)
+                        @include fluid("min-height", 30)
+                        @include fluid("margin-right", 10)
+                        border-radius: 6px
+                        box-sizing: border-box
+                        background: $fc-primary
+                        color: $fc-darker
+                        font-weight: 700
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        &.red
+                            color: white
+                            background: $fc-red
+                .auth__characters_input
+                    @include fluid("height", 42)
+            .auth__characters_block
+                position: relative
+                @include fluid("width", 300)
+                @include fluid("height", 80)
+                @include fluid("margin-bottom", 16)
+                &:last-child
+                    @include fluid("margin-bottom", 0)
+                &:hover, &.active
+                    .auth__characters_character
+                        border-color: rgba(0,198,255,0.5)
+                        background: rgba(0,198,255,0.08)
+                &.active
+                    height: auto
+                    .auth__characters_hover
+                        opacity: 1
+                        transition: all 1s
+                        @include fluid("margin-top", 0)
+            .auth__characters_character
+                display: flex
+                justify-content: space-between
+                align-items: center
+                border: 1px solid $fc-border
+                box-sizing: border-box
+                border-radius: 8px
+                @include fluid("width", 300)
+                @include fluid("height", 80)
+                @include fluid("padding-left", 24)
+                @include fluid("padding-right", 24)
+                z-index: 1
+                transition: all 0.25s ease
+                background: rgba(4,16,34,0.6)
+                backdrop-filter: blur(8px)
+                &:last-child
+                    margin-bottom: 0
+                b
+                    @include fluid("font-size", 22)
+                    @include fluid("line-height", 28)
+                    font-family: 'Rajdhani', sans-serif
+                    font-weight: 700
+                    letter-spacing: 0.5px
+                .auth__characters_circle
+                    @include fluid("width", 56)
+                    @include fluid("height", 56)
+                    position: relative
+                    @include fluid("font-size", 10)
+                    .auth__characters_circle_text
+                        position: absolute
+                        display: flex
+                        align-items: center
+                        flex-direction: column
+                        justify-content: center
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%)
+
+        .auth__center
+            height: 100%
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: flex-end
+            @include fluid("padding-bottom", 56)
+            .auth__buttons
+                display: flex
+                justify-content: space-between
+                align-items: center
+                @include fluid("width", 400)
+            .auth__spawn_elements
+                display: flex
+                justify-content: center
+                @include fluid("margin-bottom", 45)
+                @include fluid("width", 690)
+                .auth__spawn_element
+                    border-radius: 10px
+                    box-sizing: border-box
+                    @include fluid("width", 200)
+                    @include fluid("height", 200)
+                    @include fluid("border", 2, "solid rgba(0,198,255,0.3)")
+                    @include fluid("padding-left", 24)
+                    @include fluid("padding-right", 29)
+                    @include fluid("padding-bottom", 22)
+                    @include fluid("padding-top", 18)
+                    @include fluid("font-size", 20)
+                    @include fluid("margin-bottom", 15)
+                    @include fluid("margin-right", 45)
+                    position: relative
+                    background: rgba(4,16,34,0.5)
+                    backdrop-filter: blur(10px)
+                    transition: all 0.25s ease
+                    &:last-child
+                        margin-right: 0
+                    span
+                        position: absolute
+                        @include fluid("right", 30)
+                        @include fluid("bottom", 23)
+                        @include fluid("font-size", 50)
+                        color: $fc-primary
+                        opacity: 0.7
+                    &.use
+                        &:hover, &.active
+                            background: rgba(0,198,255,0.1)
+                            border-color: $fc-primary
+                            box-shadow: 0 0 20px rgba(0,198,255,0.2)
+                    &.nouse
+                        opacity: 0.4
+        .main__button_square
+            @include fluid("width", 34)
+            @include fluid("height", 34)
+            border-radius: 4px
+            background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+            color: $fc-darker
+            font-weight: bold
+            display: flex
+            align-items: center
+            justify-content: center
+            &.large
+                width: auto
+                height: auto
+                @include fluid("padding-left", 9)
+                @include fluid("padding-right", 9)
+                @include fluid("padding-bottom", 7)
+                @include fluid("padding-top", 7)
+        .auth__stats
+            @include fluid("width", 440)
+            display: flex
+            flex-direction: column
+            align-items: center
+            @include fluid("padding-top", 84)
+            .auth__stat
+                @include fluid("width", 386)
+                display: flex
+                justify-content: space-between
+                @include fluid("margin-bottom", 13)
+                .gray
+                    color: $fc-text
+                    opacity: 0.8
+        .auth__donate_element
+            box-sizing: border-box
+            @include fluid("width", 440)
+            @include fluid("height", 68)
+            @include fluid("border", 1, "solid rgba(0,198,255,0.25)")
+            @include fluid("padding-left", 27)
+            @include fluid("padding-right", 27)
+            @include fluid("font-size", 16)
+            border-radius: 8px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            position: relative
+            @include fluid("margin-top", 15)
+            background: rgba(4,16,34,0.5)
+            backdrop-filter: blur(8px)
+            transition: all 0.2s ease
+            &:hover
+                border-color: rgba(0,198,255,0.5)
+                background: rgba(0,198,255,0.08)
+            .absolute
+                @include fluid("font-size", 40)
+                position: absolute
+                left: 16%
+                top: 50%
+                transform: translate(-50%, -50%)
+                opacity: 0.06
+                color: $fc-primary
+            .box-flex
+                align-items: center
+                .auth-dollar
+                    @include fluid("font-size", 24)
+                    color: $fc-gold
+                    @include fluid("margin-left", 10)
+            .line
+                background: rgba(0,198,255,0.3)
+                @include fluid("width", 1)
+                @include fluid("height", 46)
+                @include fluid("margin-left", 32)
+                @include fluid("margin-right", 32)
+
+    // ─── INPUT FIELDS ─────────────────────────────────────
+    .auth__characters_input
+        @include fluid("width", 300)
+        @include fluid("height", 45)
+        width: 100%
+        @include fluid("margin-bottom", 14)
+        border-radius: 6px
+        @include fluid("padding", 20)
+        border: 1px solid $fc-border
+        background: rgba(0,198,255,0.04)
+        display: flex
+        align-items: center
+        box-sizing: border-box
+        font-family: 'Rajdhani', sans-serif
+        @include fluid("font-size", 17)
+        color: rgba(0,198,255,0.6)
+        transition: all 0.2s ease
+        &.main__input_error
+            border-color: $fc-red
+            box-shadow: 0 0 8px rgba(255,45,85,0.3)
+        .main__input_text
+            background-color: transparent
+            font-family: inherit
+            @include fluid("font-size", 17)
+            color: $fc-text
+            caret-color: $fc-primary
+        .main__input_text::-webkit-input-placeholder
+            color: rgba(140,185,220,0.5)
+        &:hover, &:focus
+            color: $fc-text
+            background: rgba(0,198,255,0.08)
+            border-color: rgba(0,198,255,0.5)
+            box-shadow: 0 0 12px rgba(0,198,255,0.15)
+
+    // ─── CUSTOMIZATION ────────────────────────────────────
+    .auth__customization
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        @include fluid("width", 530)
+        @include fluid("margin-bottom", 50)
+        .auth__customization_leftside
+            @include fluid("min-width", 190)
+        .auth__customization_characteristics
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: space-between
+            .auth__scroll
+                @include fluid("width", 14)
+                @include fluid("height", 33)
+                background: url(./images/scroll.png)
+                background-repeat: no-repeat
+                background-size: contain
+                background-position: center
+            .auth__customization_header
+                @include fluid("font-size", 22)
+                @include fluid("margin-bottom", 36)
+                letter-spacing: 2px
+                color: $fc-primary
+                font-family: 'Orbitron', sans-serif
+                font-weight: 700
+            ::-webkit-scrollbar
+                width: resize(4)
+                border-radius: resize(25)
+            ::-webkit-scrollbar-track
+                background: rgba(4,16,34,0.4)
+                border-radius: 100px
+            ::-webkit-scrollbar-thumb
+                background: rgba(0,198,255,0.3)
+                border-radius: 100px
+            .auth__customization_elements
+                display: flex
+                flex-direction: column
+                overflow-y: scroll
+                align-items: center
+                @include fluid("height", 336)
+                .auth__customization_element
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    @include fluid("padding-left", 20)
+                    @include fluid("padding-right", 20)
+                    @include fluid("min-width", 434)
+                    @include fluid("min-height", 38)
+                    @include fluid("margin-bottom", 16)
+                    border-radius: 4px
+                    transition: all 0.2s ease
+                    &:last-child
+                        margin-bottom: 0
+                    &:hover, &.active
+                        color: $fc-darker
+                        background: linear-gradient(135deg, $fc-primary, $fc-secondary)
+                        .auth__customization_icon
+                            color: $fc-darker
+                    .auth__customization_icon
+                        @include fluid("font-size", 20)
+                        color: $fc-primary
+                    .box-flex
+                        align-items: center
+                    &.column
+                        flex-direction: column
+                        align-items: flex-start
+                        height: auto
+                        @include fluid("min-height", 52)
+                        &:hover
+                            color: $fc-text
+                            background: transparent
+                    .auth__customization_range
+                        display: flex
+                        align-items: center
+                        justify-content: center
+                        @include fluid("width", 100)
+                        @include fluid("height", 4)
+                        .slider
+                            background: $fc-primary
+                            @include fluid("width", 12)
+                            @include fluid("height", 12)
+                            border-radius: 50%
+                        .rangeslider
+                            @include fluid("height", 4)
+                            background: rgba(255,255,255,0.1)
+                        .rangeslider__fill
+                            background: $fc-primary
+                        .rangeslider__handle
+                            border: none
+                            background: $fc-primary
+                            @include fluid("top", 2)
+                            @include fluid("width", 12)
+                            @include fluid("height", 12)
+                    .auth__customization_colors
+                        display: grid
+                        @include fluid("width", 290)
+                        grid-template-columns: repeat(10, 1fr)
+                        grid-template-rows: repeat(1, 1fr)
+                        @include fluid("grid-gap", 10)
+                        @include fluid("margin-top", 10)
+                        .auth__customization_color
+                            background: #B07947
+                            @include fluid("width", 20)
+                            @include fluid("height", 20)
+                            border-radius: 3px
+                            &.active, &:hover
+                                box-sizing: border-box
+                                border: 2px solid $fc-primary
+                                box-shadow: 0 0 6px rgba(0,198,255,0.5)
+                    .auth__customization_text
+                        @include fluid("font-size", 16)
+                        @include fluid("margin-left", 16)
+                        @include fluid("margin-right", 16)
+
+    .auth__customization_categories
+        @include fluid("padding-top", 69)
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        height: fit-content
+        .auth__customization_categorie
+            display: flex
+            align-items: center
+            justify-content: center
+            @include fluid("width", 60)
+            @include fluid("height", 60)
+            border: 1px solid $fc-border
+            box-sizing: border-box
+            color: rgba(0,198,255,0.5)
+            @include fluid("font-size", 28)
+            border-radius: 8px
+            @include fluid("margin-bottom", 14)
+            transition: all 0.2s ease
+            background: rgba(4,16,34,0.5)
+            &:last-child
+                margin-bottom: 0
+            &:hover, &.active
+                background: rgba(0,198,255,0.1)
+                border-color: $fc-border-glow
+                color: $fc-primary
+                box-shadow: 0 0 14px rgba(0,198,255,0.2)
+            &.random
+                margin-bottom: 0
+                @include fluid("margin-top", 46)
+
+    .auth__customization_image
+        @include fluid("width", 304)
+        @include fluid("height", 124)
+        background-image: url('images/back.png')
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        @include fluid("margin-bottom", 16)
+        position: relative
+        .auth__customization_father
+            z-index: 2
+            @include fluid("width", 124)
+            @include fluid("height", 124)
+            background-image: url('images/father.png')
+            background-size: contain
+            background-position: center
+            background-repeat: no-repeat
+            position: absolute
+            bottom: 0
+            @include fluid("left", 67)
+        .auth__customization_mother
+            z-index: 1
+            @include fluid("width", 124)
+            @include fluid("height", 124)
+            background-image: url('images/mother.png')
+            background-size: contain
+            background-position: center
+            background-repeat: no-repeat
+            position: absolute
+            bottom: 0
+            @include fluid("right", 67)
+
+    .auth__square_range
+        @include fluid("width", 134)
+        @include fluid("height", 134)
+        background-image: url('images/setka.png')
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        @include fluid("margin-bottom", 16)
+        @include fluid("margin-top", 96)
+        align-self: center
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        .top
+            position: absolute
+            top: -12%
+            left: 50%
+            transform: translate(-50%, -50%)
+            width: 100%
+            text-align: center
+        .bottom
+            position: absolute
+            bottom: -28%
+            left: 50%
+            transform: translate(-50%, -50%)
+            width: 100%
+            text-align: center
+        .left
+            position: absolute
+            bottom: 50%
+            left: -64%
+            transform: rotateZ(-90deg)
+            width: 100%
+            text-align: center
+        .right
+            position: absolute
+            bottom: 50%
+            right: -64%
+            transform: rotateZ(90deg)
+            width: 100%
+            text-align: center
+        .slider
+            position: absolute
+            left: 0
+            top: 0
+            background: $fc-primary
+            @include fluid("width", 14)
+            @include fluid("height", 14)
+            border-radius: 50%
+            box-shadow: 0 0 8px rgba(0,198,255,0.6)
+
+    .auth__long_range
+        @include fluid("width", 134)
+        @include fluid("height", 28)
+        background-image: url('images/setka_small.png')
+        background-size: contain
+        background-position: center
+        background-repeat: no-repeat
+        @include fluid("margin-bottom", 26)
+        @include fluid("margin-top", 26)
+        position: relative
+        align-items: center
+        display: flex
+        .left
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translate(-50%, -50%)
+        .right
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translate(-50%, -50%)
+        .slider
+            position: absolute
+            left: 0
+            top: 0
+            background: $fc-primary
+            @include fluid("width", 14)
+            @include fluid("height", 14)
+            border-radius: 50%
+            box-shadow: 0 0 8px rgba(0,198,255,0.6)
+
+    .auth__customisation_center
+        display: flex
+        align-items: center
+        flex-direction: column
+
+    .auth__sliders
+        @include fluid("width", 346)
+        @include fluid("padding-top", 16)
+        @include fluid("padding-bottom", 16)
+        display: flex
+        align-items: center
+        justify-content: space-between
+        position: relative
+
+    .auth__box-arrows
+        display: flex
+        align-items: center
+        justify-content: space-between
+        @include fluid("min-width", 210)
+        @include fluid("max-width", 210)
+        text-align: center
+
+    .margin-top-20
+        @include fluid("margin-top", 20)
+
+    .auth__slider_text
+        @include fluid("width", 120)
+        &.slider-left
+            text-align: left
+        &.slider-right
+            text-align: right
+
+// ─── FOOTER BRANDING (copyright) ─────────────────────────
+.fc-footer-brand
+    position: absolute
+    bottom: 14px
+    right: 20px
+    z-index: 100
+    font-family: 'Rajdhani', sans-serif
+    font-size: 11px
+    letter-spacing: 1.5px
+    color: rgba(0,198,255,0.3)
+    text-transform: uppercase
+    pointer-events: none
+    user-select: none
+    &::before
+        content: '© 2024-2026 '

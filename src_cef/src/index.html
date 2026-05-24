@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf8'>
+	<meta name='viewport' content='width=device-width'>
+    <title>FlyCity Roleplay</title>
+    <meta name="description" content="FlyCity Roleplay — Premium GTA V Roleplay Server">
+    <meta name="author" content="void&co">
+    <script>
+		if(window.mp === undefined)
+			window.mp = {trigger:()=>{}}
+	</script>
+	<link rel="stylesheet" type="text/css" href="build/bundle.css">
+</head>
+<body>
+	<% htmlWebpackPlugin.files.js.forEach(function(file){%>
+	<script type="application/javascript" src="<%= file %>"></script><%})%>
+	<!-- FlyCity Roleplay — Developed by void&co -->
+</body>
+</html>
