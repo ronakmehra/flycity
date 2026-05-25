@@ -1,0 +1,143 @@
+# ============================================================
+# FlyCity Roleplay - Project Requirements
+# ============================================================
+# This file documents all dependencies required to build and
+# run the FlyCity Roleplay RAGE:MP server.
+# ============================================================
+
+# ==========================
+# RUNTIME REQUIREMENTS
+# ==========================
+
+# --- RAGE:MP Server ---
+# RAGE:MP Server (latest version)
+# Download: https://rage.mp/
+# Platform: Windows x64
+
+# --- .NET Runtime ---
+# .NET 6.0 SDK or later
+# Download: https://dotnet.microsoft.com/download/dotnet/6.0
+
+# --- Node.js ---
+# Node.js 16+ (LTS recommended)
+# Download: https://nodejs.org/
+
+# ==========================
+# DATABASE REQUIREMENTS
+# ==========================
+
+# --- MySQL Server ---
+# MySQL 8.0+
+# Required databases: main, mainconfig, mainlogs
+# Schema files located in: /database/
+
+# --- Redis (Optional) ---
+# Redis server for caching
+# Used by: StackExchange.Redis
+
+# ==========================
+# C# / .NET SERVER-SIDE DEPENDENCIES (NuGet)
+# ==========================
+
+# Newtonsoft.Json           12.0.3    - JSON serialization
+# MySql.Data               8.0.28    - MySQL ADO.NET connector
+# MySqlConnector            1.1.0    - Async MySQL connector
+# MySqlBackup.NET           2.3.4    - MySQL backup utility
+# linq2db.MySql             3.3.0    - LINQ to DB for MySQL
+# System.Data.SQLite.Core   1.0.113.7 - SQLite support
+# StackExchange.Redis       2.2.79   - Redis client
+# Otp.NET                   1.2.2    - One-time password (2FA)
+
+# ==========================
+# CEF/UI DEPENDENCIES (npm - src_cef/)
+# ==========================
+
+# --- Build Tools ---
+# webpack                  ^5.88.0
+# webpack-cli              ^4.10.0
+# webpack-dev-server       ^4.15.0
+# html-webpack-plugin      ^5.5.0
+# mini-css-extract-plugin  ^2.7.6
+# compression-webpack-plugin ^9.2.0
+# copy-webpack-plugin      ^9.1.0
+# webpack-bundle-analyzer  ^4.5.0
+# cross-env                ^7.0.3
+
+# --- UI Framework ---
+# svelte                   ^3.48.0
+# svelte-loader            ^3.1.9
+# svelte-preprocess        ^4.10.7
+
+# --- CSS/Styling ---
+# sass                     ^1.58.3
+# sass-loader              ^13.2.0
+# css-loader               ^5.2.7
+# style-loader             ^3.3.3
+# postcss                  ^8.4.31
+# postcss-loader           ^6.2.1
+# cssnano                  ^5.1.9
+# autoprefixer             ^10.4.14
+
+# --- JS/Asset Loaders ---
+# babel-loader             ^8.2.5
+# file-loader              ^6.2.0
+# url-loader               ^4.1.1
+
+# --- Libraries ---
+# axios                    ^1.4.0
+# lodash                   ^4.17.21
+# moment                   ^2.29.3
+# moment-timezone          ^0.5.34
+# moment-duration-format   ^2.3.2
+# howler                   ^2.2.3
+# hammerjs                 ^2.0.8
+# express                  ^4.18.1
+# rage-rpc                 ^0.4.0
+# clipboard-copy           ^4.0.1
+# copy-to-clipboard        ^3.3.1
+# countup                  ^1.8.2
+# progressbar.js           ^1.1.0
+# @jaames/iro              ^5.5.2
+
+# --- Svelte Plugins ---
+# @beyonk/svelte-carousel  ^2.9.0
+# @beyonk/svelte-notifications ^1.1.2
+# svelte-apexcharts        ^1.0.2
+# svelte-scrollto          ^0.1.1
+# svelte-ui-slider         0.0.9
+# fa-icons                 ^0.2.0
+# @fortawesome/fontawesome-free ^5.15.4
+
+# --- Other ---
+# canvas-scratch-card      ^1.0.4
+# scratchcard              ^0.5.6
+# scratchcard-js           ^1.4.9
+# siema                    ^1.5.1
+# imgur                    ^1.0.2
+# incstr                   ^1.2.3
+# querystring              ^0.2.1
+# serve                    ^13.0.2
+# sirv-cli                 ^0.4.4
+
+# ==========================
+# CLIENT-SIDE DEPENDENCIES (npm - src_client/)
+# ==========================
+
+# webpack                  ^5.88.0
+# webpack-cli              ^4.10.0
+
+# ==========================
+# INSTALLATION INSTRUCTIONS
+# ==========================
+
+# 1. Install Node.js 16+ and .NET 6 SDK
+# 2. Install MySQL 8.0+ and create databases using /database/*.sql
+# 3. Build the CEF UI:
+#       cd src_cef && npm install && npm run build
+# 4. Build the client scripts:
+#       cd src_client && npm install && npx webpack
+# 5. Build the .NET server:
+#       cd dotnet/resources && dotnet restore && dotnet build
+# 6. Configure /conf.json with your server settings
+# 7. Configure /settings/ files (database connection, etc.)
+# 8. Start RAGE:MP server

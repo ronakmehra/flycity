@@ -1,0 +1,128 @@
+// GTA V weapon hash-to-name mapping for HUD display
+const weaponNames = {
+    // Melee
+    0xA2719263: "Unarmed",
+    0x92A27487: "Dagger",
+    0x958A4A8F: "Bat",
+    0x440E4788: "Bottle",
+    0x84BD7BFD: "Crowbar",
+    0x4E875F73: "Fist",
+    0xF9E6AA4B: "Flashlight",
+    0x8BB05FD7: "Golf Club",
+    0x84BD7BFD: "Hammer",
+    0xD8DF3C3C: "Hatchet",
+    0xC1442E52: "Brass Knuckles",
+    0x99B507EA: "Knife",
+    0xDD5DF8D9: "Machete",
+    0x678B81B1: "Switchblade",
+    0x19044EE0: "Nightstick",
+    0xCD274149: "Pipe Wrench",
+    0x94117305: "Battle Axe",
+    0x3813FC08: "Pool Cue",
+    0x6589186A: "Stone Hatchet",
+
+    // Handguns
+    0x1B06D571: "Pistol",
+    0xBFE256D4: "Pistol MK2",
+    0x5EF9FEC4: "Combat Pistol",
+    0x22D8FE39: "AP Pistol",
+    0x99AEEB3B: "Stun Gun",
+    0x083839C4: "Pistol .50",
+    0xAF3696A1: "SNS Pistol",
+    0xBFD21232: "SNS Pistol MK2",
+    0xD205520E: "Heavy Pistol",
+    0x7FD62962: "Vintage Pistol",
+    0x9D61E50F: "Flare Gun",
+    0x060EC506: "Marksman Pistol",
+    0xDC4DB296: "Heavy Revolver",
+    0xCB96392F: "Heavy Revolver MK2",
+    0x47757124: "Double Action Revolver",
+    0xD1D5F52B: "Ceramic Pistol",
+    0x476BF155: "Navy Revolver",
+    0x97EA20B8: "Gadget Pistol",
+    0xBFEFFF6D: "Perico Pistol",
+
+    // SMGs
+    0x13532244: "Micro SMG",
+    0x2BE6766B: "SMG",
+    0x78A97CD0: "SMG MK2",
+    0xEFE7E2DF: "Assault SMG",
+    0x0A3D4D34: "Combat PDW",
+    0xDB1AA450: "Machine Pistol",
+    0xBD248B55: "Mini SMG",
+    0x476BF155: "Unholy Hellbringer",
+
+    // Shotguns
+    0x1D073A89: "Pump Shotgun",
+    0x555AF99A: "Pump Shotgun MK2",
+    0x7846A318: "Sawed-Off Shotgun",
+    0xE284C527: "Assault Shotgun",
+    0x9D61E50F: "Bullpup Shotgun",
+    0xA89CB99E: "Musket",
+    0x3AABBBAA: "Heavy Shotgun",
+    0x12E82D3D: "Double Barrel Shotgun",
+    0x5A96BA4: "Sweeper Shotgun",
+    0xCB96392F: "Combat Shotgun",
+
+    // Assault Rifles
+    0xBFEFFF6D: "Assault Rifle",
+    0x394F415C: "Assault Rifle MK2",
+    0x83BF0278: "Carbine Rifle",
+    0xFAD1F1C9: "Carbine Rifle MK2",
+    0xAF113F99: "Advanced Rifle",
+    0xC0A3098D: "Special Carbine",
+    0x969C3D67: "Special Carbine MK2",
+    0x7F229F94: "Bullpup Rifle",
+    0x84D6FAFD: "Bullpup Rifle MK2",
+    0x624FE830: "Compact Rifle",
+    0x9D1F17E6: "Military Rifle",
+    0xC78D71B4: "Heavy Rifle",
+    0xD1D5F52B: "Tactical Rifle",
+
+    // Machine Guns
+    0x9D07F764: "MG",
+    0x7FD62962: "Combat MG",
+    0xDBBD7280: "Combat MG MK2",
+    0x61012683: "Gusenberg Sweeper",
+
+    // Sniper Rifles
+    0x05FC3C11: "Sniper Rifle",
+    0x0C472FE2: "Heavy Sniper",
+    0xA914799: "Heavy Sniper MK2",
+    0xC734385A: "Marksman Rifle",
+    0x6A6C02E0: "Marksman Rifle MK2",
+    0x6E7DDDEC: "Precision Rifle",
+
+    // Heavy Weapons
+    0xB1CA77B1: "RPG",
+    0xA284510B: "Grenade Launcher",
+    0x4DD2DC56: "Smoke Grenade Launcher",
+    0x42BF8A85: "Minigun",
+    0x7F7497E5: "Firework Launcher",
+    0x6D544C99: "Railgun",
+    0x63AB0442: "Homing Launcher",
+    0x0781FE4A: "Compact Grenade Launcher",
+    0xB62D1F67: "Widowmaker",
+
+    // Throwables
+    0x93E220BD: "Grenade",
+    0xA0973D5E: "BZ Gas",
+    0x24B17070: "Molotov",
+    0x2C3731D9: "Sticky Bomb",
+    0xAB564B93: "Proximity Mine",
+    0xBA45E8B8: "Snowball",
+    0x23C9F95C: "Pipe Bomb",
+    0xFDBC8A50: "Baseball",
+    0x497FACC3: "Tear Gas",
+    0x34A67B97: "Flare",
+    0xBA536372: "Jerry Can",
+    0x7FCCBEE: "Parachute",
+    0xFBAB5776: "Fire Extinguisher",
+
+    // Miscellaneous
+    0x34A67B97: "Hazardous Jerry Can",
+    0x060EC506: "Up-n-Atomizer",
+    0xBA536372: "Unholy Hellbringer",
+};
+
+export default weaponNames;
