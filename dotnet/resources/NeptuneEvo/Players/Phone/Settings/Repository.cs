@@ -191,7 +191,7 @@ namespace NeptuneEvo.Players.Phone.Settings
 
             phoneData.Settings.ForbesVisible = !phoneData.Settings.ForbesVisible;
             characterData.IsForbesShow = phoneData.Settings.ForbesVisible;
-            Trigger.ClientEvent(player, "phone.notify", (int) DefaultNumber.RedAge, $"Статус приватности Forbes изменится со следующим обновлением ТОПа.", 5);
+            Trigger.ClientEvent(player, "phone.notify", (int) DefaultNumber.FlyCity, $"Статус приватности Forbes изменится со следующим обновлением ТОПа.", 5);
         }
         public static void OnUpdateBellId(ExtPlayer player, int bellId)
         {

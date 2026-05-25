@@ -421,7 +421,7 @@ namespace NeptuneEvo.Core
                     MoneySystem.Wallet.Change(player, -vehiclePrice);
                 else
                     UpdateData.RedBucks(player, -vehiclePrice, msg:LangFunc.GetText(LangType.Ru, DataName.PremCarBuy, vName, vehiclePrice));
-                //Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.PremCarBuy, vName), DateTime.Now.AddSeconds(10));
+                //Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.PremCarBuy, vName), DateTime.Now.AddSeconds(10));
             }
             catch (Exception e)
             {

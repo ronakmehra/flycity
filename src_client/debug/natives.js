@@ -3262,7 +3262,7 @@ global.nativeInvoke = (name, ...args) => {
         return result;
 
     } catch (e) {
-        mp.console.logError(`[RedAge] Crush in 'nativeInvoke' key: ${name} (${JSON.stringify(...args)})`, true);
+        mp.console.logError(`[FlyCity] Crush in 'nativeInvoke' key: ${name} (${JSON.stringify(...args)})`, true);
         crushLog("nativeInvoke", name, e);
     }
     return;
@@ -3283,7 +3283,7 @@ global.nativeInvokeString = (name, ...args) => {
         return result;
 
     } catch (e) {
-        mp.console.logError(`[RedAge] Crush in 'nativeInvokeString' key: ${name} (${JSON.stringify(...args)})`, true);
+        mp.console.logError(`[FlyCity] Crush in 'nativeInvokeString' key: ${name} (${JSON.stringify(...args)})`, true);
         crushLog("NativeInvokeString", name, e);
     }
     return;
@@ -3303,7 +3303,7 @@ global.nativeInvokeVector3 = (name, ...args) => {
         return result;
 
     } catch (e) {
-        mp.console.logError(`[RedAge] Crush in 'nativeInvokeVector3' key: ${name} (${JSON.stringify(...args)})`, true);
+        mp.console.logError(`[FlyCity] Crush in 'nativeInvokeVector3' key: ${name} (${JSON.stringify(...args)})`, true);
         crushLog("nativeInvokeVector3", name, e);
     }
     return;

@@ -620,7 +620,7 @@ global.isAttached = (entity) => new Promise(async (resolve, reject) => {
         if (entity && entity.handle !== 0 && !!entity.isAttached())
             return resolve(true);
         let d = 0;
-        while (!entity || !entity.handle !== 0 || !!!entity.isAttached()) {
+        while (!entity || entity.handle === 0 || !entity.isAttached()) {
             if (d > 500) return resolve(false);
             d++;
             await global.wait (10);

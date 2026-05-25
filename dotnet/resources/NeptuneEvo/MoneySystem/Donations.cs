@@ -115,7 +115,7 @@ namespace NeptuneEvo.MoneySystem
                     else
                     {
                         UpdateData.RedBucks(target, (int)reds, msg: "Пополнение за реферала");
-                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.ComeRbFromRef, reds, login), DateTime.Now);
+                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.ComeRbFromRef, reds, login), DateTime.Now);
                         //Notify.Send(target, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.ComeRbFromRef, reds, login), 3000);
                         using MySqlCommand cmd = new MySqlCommand
                         {
@@ -204,7 +204,7 @@ namespace NeptuneEvo.MoneySystem
                                     cmd.Parameters.AddWithValue("@val1", accountData.Login);
                                     MySQL.Query(cmd);
                                     //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, $"Вам пришли {reds} RedBucks", 3000);
-                                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.UvGotReds, reds), DateTime.Now);
+                                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.UvGotReds, reds), DateTime.Now);
                                 }
                             }
                             command.CommandText = $"delete from completed where id={id}";

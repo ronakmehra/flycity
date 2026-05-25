@@ -164,7 +164,7 @@ gm.events.add('openWalkieTalkieMenu', async (isGovFactionPlayer, walkieTalkieFre
 			mp.gui.emmit(`window.hudStore.isWalkietalkie (true)`);
 			mp.gui.emmit(`window.events.callEvent("cef.walkietalkie.updateMainInfo", '${global.Keys[global.userBinder[50].keyCode]}', ${isGovFactionPlayer}, ${walkieTalkieFrequency})`);			
 			global.menuOpen(true);
-			mp.discord.update('Настраивает рацию', `на RedAge под ID ${global.localplayer.remoteId}`);
+			mp.discord.update('Настраивает рацию', `на FlyCity под ID ${global.localplayer.remoteId}`);
 			global.walkieTalkieMenu = true;
 		}
 	}

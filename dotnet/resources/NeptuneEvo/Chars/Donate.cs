@@ -1460,7 +1460,7 @@ namespace NeptuneEvo.Chars
 
                 int totalamount = amount * Convert.ToInt32(10 * Main.DonateSettings.Convert);
                 
-                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.SucConvertRbToMoney, amount, totalamount), DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.SucConvertRbToMoney, amount, totalamount), DateTime.Now);
                 //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.SucConvertRbToMoney, amount, totalamount), 3000);
 
                 UpdateData.RedBucks(player, -amount, msg: LangFunc.GetText(LangType.Ru, DataName.ConvertRbTo, totalamount));
@@ -1740,7 +1740,7 @@ namespace NeptuneEvo.Chars
             }
             else
             {
-                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.DonNumBuy, number, money), DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.DonNumBuy, number, money), DateTime.Now);
                 UpdateData.RedBucks(player, -money, LangFunc.GetText(LangType.Ru, DataName.DonNumBuy, number, money));
             }
             //client.donate.close
@@ -1802,7 +1802,7 @@ namespace NeptuneEvo.Chars
             
             Chars.Repository.AddNewItem(player, $"char_{characterData.UUID}", "inventory", ItemId.SimCard, 1, sim.ToString());
             
-            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.DonSimBuy, sim, money), DateTime.Now);
+            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.DonSimBuy, sim, money), DateTime.Now);
             UpdateData.RedBucks(player, -money, LangFunc.GetText(LangType.Ru, DataName.DonSimBuy, sim, money));
             //client.donate.close
             Trigger.ClientEvent(player, "client.donate.close");

@@ -247,7 +247,7 @@ namespace NeptuneEvo.Core
                 Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.RbOutcome, target.Name, amount), 3000);
                 //Notify.Send(target, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.RbIncome, amount, player.Name), 3000);
                 GameLog.Admin(player.Name, $"givereds({amount})", target.Name);
-                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.RbIncome, amount, player.Name), DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.RbIncome, amount, player.Name), DateTime.Now);
             }
             catch (Exception e)
             {
@@ -1260,7 +1260,7 @@ namespace NeptuneEvo.Core
                 target.SetSharedData("vmuted", true);
                 Trigger.SendPunishment($"{CommandsAccess.AdminPrefix}{player.Name} выдал мут игроку {target.Name}({target.Value}) на {time} {deTimeMsg}. Причина: {reason}", target);
                 GameLog.Admin($"{player.Name}", $"mutePlayer({time}{deTimeMsg}, {reason})", $"{target.Name}");
-                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge,$"{player.Name} выдал Вам мут на {time} {deTimeMsg}. Причина: {reason}", DateTime.Now); 
+                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity,$"{player.Name} выдал Вам мут на {time} {deTimeMsg}. Причина: {reason}", DateTime.Now); 
             }
             catch (Exception e)
             {
@@ -1281,7 +1281,7 @@ namespace NeptuneEvo.Core
                     targetCharacterData.Unmute = 1;
                     Trigger.SendPunishment($"{CommandsAccess.AdminPrefix}{player.Name} снял мут с игрока {target.Name}({target.Value})");
                     GameLog.Admin($"{player.Name}", $"unmutePlayer", $"{target.Name}");
-                    Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge,$"{player.Name} снял с Вас мут.", DateTime.Now);
+                    Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity,$"{player.Name} снял с Вас мут.", DateTime.Now);
                 }
                 else Notify.Send(player, NotifyType.Error, NotifyPosition.BottomCenter, "У игрока нет мута", 1500);
             }
@@ -2361,7 +2361,7 @@ namespace NeptuneEvo.Core
                     Ban.Online(target, unbanTime, false, "Warns 3/3", "Server");
                 }
                 GameLog.Admin($"{player.Name}", $"warnPlayer({reason})", $"{target.Name}");
-                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge,$"{player.Name} выдал Вам WARN | {targetCharacterData.Warns}/3. Причина: {reason}", DateTime.Now); 
+                Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity,$"{player.Name} выдал Вам WARN | {targetCharacterData.Warns}/3. Причина: {reason}", DateTime.Now); 
                 target.Kick("Предупреждение");
             }
             catch (Exception e)
@@ -3151,7 +3151,7 @@ namespace NeptuneEvo.Core
                 NAPI.Player.SetPlayerHealth(target, 3);
                 Chars.Repository.RemoveAllWeapons(target, true, true, armour: true);
                 GameLog.Admin(admin.Name, $"demorgan({time}{deTimeMsg},{reason})", target.Name);
-                //Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge,$"{admin.Name} отправил Вас в деморган на {time} {deTimeMsg}. Причина: {reason}", DateTime.Now); 
+                //Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity,$"{admin.Name} отправил Вас в деморган на {time} {deTimeMsg}. Причина: {reason}", DateTime.Now); 
                 EventSys.SendCoolMsg(target,"Администрация", $"{admin.Name}", $"Отправил Вас в деморган на {time} {deTimeMsg}. Причина: {reason}", "", 15000); 
                 //
             }
@@ -3177,7 +3177,7 @@ namespace NeptuneEvo.Core
                 targetCharacterData.DemorganTime = 1;
                 Trigger.SendPunishment($"{CommandsAccess.AdminPrefix}{player.Name} выпустил из деморгана {target.Name} ({target.Value})");
                 GameLog.Admin($"{player.Name}", $"undemorgan", $"{target.Name}");
-                //Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.RedAge,$"{player.Name} выпустил Вас из деморгана.", DateTime.Now);
+                //Players.Phone.Messages.Repository.AddSystemMessage(target, (int)DefaultNumber.FlyCity,$"{player.Name} выпустил Вас из деморгана.", DateTime.Now);
                 EventSys.SendCoolMsg(target,"Администрация", $"{player.Name}", $"Выпустил Вас из деморгана. Приятной игры и больше не нарушайте! :)", "", 15000); 
             }
             catch (Exception e)

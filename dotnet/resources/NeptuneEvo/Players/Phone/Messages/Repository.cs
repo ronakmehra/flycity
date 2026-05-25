@@ -273,7 +273,7 @@ namespace NeptuneEvo.Players.Phone.Messages
                 errorMessage = Ems.OnCallEms(player);
                 //UpdateMessageStatus(player, number, key, dateJson);
             }
-            else if (number == (int) DefaultNumber.RedAge)
+            else if (number == (int) DefaultNumber.FlyCity)
             {
                 var isActive = false;
 

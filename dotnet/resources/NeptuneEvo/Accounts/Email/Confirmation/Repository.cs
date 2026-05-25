@@ -82,7 +82,7 @@ namespace NeptuneEvo.Accounts.Email.Confirmation
                 
                 Chars.Repository.AddNewItemWarehouse(player, ItemId.Case4, 1);
                 //Notify.Send(player, NotifyType.Info, NotifyPosition.BottomCenter, "Почта подтверждена успешно. Приз отправлен на склад. (M->GPS - > Склад)", 5000);
-                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, $"Почта подтверждена успешно. Приз отправлен на склад. (M->GPS - > Склад)", DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, $"Почта подтверждена успешно. Приз отправлен на склад. (M->GPS - > Склад)", DateTime.Now);
                 
                 Trigger.SetTask(async () =>
                 {

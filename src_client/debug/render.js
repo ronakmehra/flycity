@@ -9,7 +9,7 @@ class DebugRender {
 
     crush (e) {
         this.crushFlood = Date.now() + 1000;
-        mp.console.logError(`[RedAge] Crush in 'render' key: ${this.name}`, true);
+        mp.console.logError(`[FlyCity] Crush in 'render' key: ${this.name}`, true);
         crushLog("debugRender", this.name, e);
     }
 

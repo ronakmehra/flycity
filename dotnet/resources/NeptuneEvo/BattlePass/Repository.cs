@@ -863,7 +863,7 @@ namespace NeptuneEvo.BattlePass
             battlePassData.IsPremium = true;
             
             //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.YouBuyBp), 3000);
-            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.YouBuyBp), DateTime.Now);
+            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.YouBuyBp), DateTime.Now);
             
             if (!isBuyDonate)
                 UpdateData.RedBucks(player, -PricePremium, msg:"BPBuyPremium");
@@ -980,7 +980,7 @@ namespace NeptuneEvo.BattlePass
             AddLvl(player, buyLvl.Lvl);
             
             //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.BpBuyLvl), 7000);
-            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.BpBuyLvl, buyLvl.Lvl, buyLvl.PriceRB), DateTime.Now);
+            Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.BpBuyLvl, buyLvl.Lvl, buyLvl.PriceRB), DateTime.Now);
             UpdateData.RedBucks(player, -buyLvl.PriceRB, msg:$"BPBuyLvl({buyLvl.Lvl})");
             battlePassData = player.BattlePassData;
             

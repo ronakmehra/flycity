@@ -56,7 +56,7 @@ namespace NeptuneEvo
 {
     public class Main : Script
     {
-        public static string Codename { get; } = "RedAge Classic";
+        public static string Codename { get; } = "FlyCity Roleplay";
         public static string Version { get; } = "v1.00.00";
         public static string Build { get; } = "#0000";
         public static string Full { get; } = $"{Codename} {Version} {Build}";
@@ -3526,7 +3526,7 @@ namespace NeptuneEvo
                 var characterData = player.GetCharacterData();
                 if (characterData == null) return;
                 UpdateData.RedBucks(player, redbuckses, msg: "Вознаграждение за дневной онлайн");
-                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.BonusEverdayOnline, hours, redbuckses), DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.BonusEverdayOnline, hours, redbuckses), DateTime.Now);
                 //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.BonusEverdayOnline, hours, redbuckses), 5000);
                 EventSys.SendCoolMsg(player,"Система", "Награда за онлайн", $"{LangFunc.GetText(LangType.Ru, DataName.BonusEverdayOnline, hours, redbuckses)}", "", 10000);
                 if (!characterData.Achievements[16])
