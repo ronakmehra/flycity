@@ -1,3 +1,18 @@
 {
-    
+    "0": {
+        "buttons": [
+            {"name": "Расскажи подробнее.", "type": "perform"},
+            {"name": "Не сейчас."}
+        ],
+        "text": "Привет! Я pavel. У меня есть задание для тебя по случаю праздника. Хочешь помочь?",
+        "sound": "cloud/npc/defenderFatherlandDay/pavel.ogg"
+    },
+    "1": {
+        "buttons": [
+            {"name": "Я помогу!", "type": "perform"},
+            {"name": "Может позже."}
+        ],
+        "text": "Отлично! Мне нужна твоя помощь. Справишься?",
+        "sound": "cloud/npc/defenderFatherlandDay/pavel_1.ogg"
+    }
 }
