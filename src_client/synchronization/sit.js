@@ -1263,7 +1263,7 @@ async function RecreateObjectEditor() {
 
     await global.loadModel(testfsd[selecttestfsd]);
 
-    //mp.console.logError(`[RedAge] Debug loadModel: ${selecttestfsd}`, true);
+    //mp.console.logError(`[FlyCity] Debug loadModel: ${selecttestfsd}`, true);
 
     global.OnObjectEditor (testfsd[selecttestfsd], null, (pos, rot, _) => {
         objdata = mp.objects.new(testfsd[selecttestfsd], pos, {

@@ -56,14 +56,15 @@ mp.gui.emmit = (execute, log = 0) => {
 mp.gui.json = (name, json) => {
 	try
 	{
+		const execute = `${name}('${JSON.stringify (json)}')`;
 		if (cefInit) 
-			main_browser.execute (`${name}('${JSON.stringify (json)}')`);
+			main_browser.execute (execute);
 		else 
 			cefInitData.push (execute);
 	}
 	catch (e) 
 	{
-		mp.events.callRemote("client_trycatch", "utils/cef", "mp.gui.emmit", e.toString());
+		mp.events.callRemote("client_trycatch", "utils/cef", "mp.gui.json", e.toString());
 	}
 }
 

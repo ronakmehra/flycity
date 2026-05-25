@@ -330,7 +330,7 @@ namespace NeptuneEvo.Core
                         correctValue = 0;
                     
                     UpdateData.RedBucks(foreachPlayer, correctValue, msg: "Отправка RB");
-                    Players.Phone.Messages.Repository.AddSystemMessage(foreachPlayer, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.RbIncome, amount, player.Name.Replace('_', ' ')), DateTime.Now);
+                    Players.Phone.Messages.Repository.AddSystemMessage(foreachPlayer, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.RbIncome, amount, player.Name.Replace('_', ' ')), DateTime.Now);
                 }
                 
                 NAPI.Chat.SendChatMessageToAll($"{CommandsAccess.AdminPrefixChat}{player.Name.Replace('_', ' ')} выдал всем игрокам {amount} RedBucks.");
@@ -7364,7 +7364,7 @@ namespace NeptuneEvo.Core
 
                 GameLog.AddInfo($"(ref_code) player({characterData.UUID}) {code}");
                 
-                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.RefCreate, code), DateTime.Now);
+                Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.RefCreate, code), DateTime.Now);
                 
                 UpdateData.RedBucks(player, -228, msg: $"Создание реф.кода {code}");
                 

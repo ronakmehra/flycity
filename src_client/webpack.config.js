@@ -1,6 +1,6 @@
 const path = require("path");
 
-const LIBRARY_NAME = 'redage-clientside';
+const LIBRARY_NAME = 'flycity-clientside';
 const OUTPUT_FILE = 'main.js';
 
 module.exports = (env, argv) => {

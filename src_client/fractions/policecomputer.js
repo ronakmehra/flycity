@@ -9,7 +9,7 @@ gm.events.add(clientName + "open", async () => {
     mp.gui.emmit(
         `window.router.setView("FractionsBortovoi")`
     );
-    mp.discord.update('Изучает боттовой компьютер', `на RedAge под ID ${global.localplayer.remoteId}`);
+    mp.discord.update('Изучает бортовой компьютер', `на FlyCity под ID ${global.localplayer.remoteId}`);
 });
 
 gm.events.add(clientName + "close", async () => {

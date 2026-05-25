@@ -2200,7 +2200,7 @@ namespace NeptuneEvo.Core
                 }
                 else
                 {
-                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.PremClothB, price), DateTime.Now);
+                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.PremClothB, price), DateTime.Now);
                     UpdateData.RedBucks(player, -price, msg: LangFunc.GetText(LangType.Ru, DataName.PremClothB, price));
                 }
                 

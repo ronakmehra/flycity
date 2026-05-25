@@ -402,7 +402,7 @@ gm.events.add("playerRuleTriggered", (rule, counter) =>
         mp.events.call('notify', 4, 2, translateText("Ваш ping слишком большой. Зайдите позже"), 5000);
         mp.events.callRemote("kickclient");
     }
-    /*if (rule === 'packetLoss' && counter => 10) {
+    /*if (rule === 'packetLoss' && counter >= 10) {
         mp.events.call('notify', 4, 2, translateText("У Вас большая потеря пакетов. Зайдите позже"), 5000);
         mp.events.callRemote("kickclient");
     }*/

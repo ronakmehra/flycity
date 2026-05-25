@@ -458,7 +458,7 @@ namespace NeptuneEvo.Events
                     GiveBonus(player, slotId - 1);
                     OnDonateList(player);
                     Accounts.Save.Repository.SaveReceived(player);
-                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.YouGetPopBonus, MoneySystem.Wallet.Format(donateData)), DateTime.Now);
+                    Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.YouGetPopBonus, MoneySystem.Wallet.Format(donateData)), DateTime.Now);
                 }
                 else 
                     Notify.Send(player, NotifyType.Error, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.Everyday6h), 3000);
@@ -655,7 +655,7 @@ namespace NeptuneEvo.Events
                         GiveBonus(player, day - 1);
                         isUpdate = true;
                         //Notify.Send(player, NotifyType.Success, NotifyPosition.BottomCenter, LangFunc.GetText(LangType.Ru, DataName.YouGetPopBonus, MoneySystem.Wallet.Format(donateData.Value)), 10000);
-                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.YouGetPopBonus, MoneySystem.Wallet.Format(donateData.Value)), DateTime.Now);
+                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.YouGetPopBonus, MoneySystem.Wallet.Format(donateData.Value)), DateTime.Now);
                         break;
                     }                    
                 }

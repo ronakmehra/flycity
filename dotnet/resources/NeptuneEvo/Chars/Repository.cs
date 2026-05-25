@@ -1038,7 +1038,7 @@ namespace NeptuneEvo.Chars
             Total   10000 - 100.00% 
             */ 
             new RouletteCaseData(ItemId.Case10, "Экзотический кейс", 7777, new List<RouletteItemData>(), "keys_8", "Кейс с автомобилями из DonateRoom Autoroom. Доната Редбаксовна одобряет!"),              
-            new RouletteCaseData(ItemId.Case11, "Легендарный кейс", 5555, new List<RouletteItemData>(), "keys_11", "Все или ничего! Хочешь рискнуть и стать обладателем легендарной кофты RedAge? Тогда крути кейс!"), 
+            new RouletteCaseData(ItemId.Case11, "Легендарный кейс", 5555, new List<RouletteItemData>(), "keys_11", "Все или ничего! Хочешь рискнуть и стать обладателем легендарной кофты FlyCity? Тогда крути кейс!"), 
             new RouletteCaseData(ItemId.Case12, "Интересный кейс", 3999, new List<RouletteItemData>(), "keys_12", "Давно хочешь себе уникальную машину которая нигде не продается? Пожалуйста! Dodge Charger - стоит на вооружении у полиции, обладает довольно высокими характеристиками."), 
             new RouletteCaseData(ItemId.Case13, "Вертолетный кейс", 8888, new List<RouletteItemData>(), "keys_13", "Любишь смотреть на людей свысока? Пожалуй, для этого идеально подойдет вертолёт!"), 
             new RouletteCaseData(ItemId.Case14, "Бронированный кейс", 5000, new List<RouletteItemData>(), "keys_14", "Классный новый кейс с модными бронированными тачками!"),
@@ -2597,7 +2597,7 @@ public static IReadOnlyDictionary<ClothesComponent, ItemId> ClothesComponentToIt
             { ItemId.Case8, new ItemsInfo(RouletteCasesData[8].Name, "Кейс с МУЖСКОЙ одеждой из донатного магазина одежды. Испытай удачу и будь стильным, или продай кому-то и будь богатым. А можешь и подарить...", "inv-item-case8", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
             { ItemId.Case9, new ItemsInfo(RouletteCasesData[9].Name, "Кейс с ЖЕНСКОЙ одеждой из донатного магазина одежды. Отличный вариант, если хочется что-нибудь подарить.", "inv-item-case9", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
             { ItemId.Case10, new ItemsInfo(RouletteCasesData[10].Name, "Кейс с автомобилями из Exotic DonateRoom. Доната Редбаксовна одобряет!", "inv-item-case10", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
-            { ItemId.Case11, new ItemsInfo(RouletteCasesData[11].Name, "Все или ничего! Хочешь рискнуть и стать обладателем легендарной кофты RedAge? Тогда крути кейс!", "inv-item-case11", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
+            { ItemId.Case11, new ItemsInfo(RouletteCasesData[11].Name, "Все или ничего! Хочешь рискнуть и стать обладателем легендарной кофты FlyCity? Тогда крути кейс!", "inv-item-case11", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
             { ItemId.Case12, new ItemsInfo(RouletteCasesData[12].Name, "Давно хочешь себе уникальную машину которая нигде не продается? Dodge Charger в этом кейсике!", "inv-item-case12", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
             { ItemId.Case13, new ItemsInfo(RouletteCasesData[13].Name, "Любишь смотреть на людей свысока? Пожалуй, для этого идеально подойдет вертолёт!", "inv-item-case13", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
             { ItemId.Case14, new ItemsInfo(RouletteCasesData[14].Name, "Классный новый кейс с модными бронированными тачками!", "inv-item-case14", "Особое", NAPI.Util.GetHashKey("prop_idol_case_02"), 100, new Vector3(0.0,0.0,-1.0), new Vector3(90, 0, 0), newItemType.Cases) },
@@ -8404,7 +8404,7 @@ public static IReadOnlyDictionary<ClothesComponent, ItemId> ClothesComponentToIt
                     {
                         int winrb = Convert.ToInt32(sessionData.SappeData * SappeCoef[type - 1]);
                         UpdateData.RedBucks(player, winrb, msg: LangFunc.GetText(LangType.Ru, DataName.SapperGameWin));
-                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.RedAge, LangFunc.GetText(LangType.Ru, DataName.SappWin, winrb), DateTime.Now);
+                        Players.Phone.Messages.Repository.AddSystemMessage(player, (int)DefaultNumber.FlyCity, LangFunc.GetText(LangType.Ru, DataName.SappWin, winrb), DateTime.Now);
                     }
                 }
                 sessionData.SappeData = -1;

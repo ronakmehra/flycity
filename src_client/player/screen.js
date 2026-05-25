@@ -200,7 +200,7 @@ const createVeh = async (model, toggled = false) => {
 
     screenVeh = mp.vehicles.new(mp.game.joaat (model), new mp.Vector3(0.0, 0.0, 150.0), {
         heading: 0.0,
-        numberPlate: 'RedAge',
+        numberPlate: 'FlyCity',
         alpha: 255,
         color: [[0, 0, 0], [0, 0, 0]],
         locked: false,

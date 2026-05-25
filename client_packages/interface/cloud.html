@@ -36,19 +36,21 @@
                 onLoadRes('script', url + "/build/bundle.js");
             }
 
+			const loadLocal = () => {
+				console.log('Loading local build');
+				document.cloud = "cloud/";
+				onLoadRes('link', "build/bundle.css", () => {
+					onLoadRes('script', "build/bundle.js");
+				});
+			}
 
 			console.log('Start')
 
-            onLoadRes('link', "https://cdn-ra3.ragemp.pro/build/bundle.css", () => {
-                    loadRes ("https://cdn-ra3.ragemp.pro")
+            onLoadRes('link', "build/bundle.css", () => {
+                    loadRes ("")
                 }, (element) => {
-				    console.log('Fail Rus Cdn')
-                    onLoadRes('link', "https://cdn-ra3.ragemp.pro/build/bundle.css", () => {
-                            loadRes ("https://cdn-ra3.ragemp.pro")
-                        }, (element) => {
-				            console.log('Fail Global Cdn')
-                        }
-                    )
+				    console.log('Fail local Cdn, trying fallback')
+					loadLocal();
                 }
             )
 		</script>
